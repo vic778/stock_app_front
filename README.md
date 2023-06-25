@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# STOCK APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> The Stock App application is designed to provide a user-friendly interface for managing investments, calculating profit and loss, and viewing historical performance metrics. It utilizes the backend API endpoints to interact with the database and perform the necessary calculations.
+Components used:
 
-## Available Scripts
+  - Home
+  - Stock
+  - Register
+  - Login
+  - Dashboard
+  - CRUD Portfolio
+  - CRUD Investement
+  
+### Home
+![img](https://github.com/vic778/stock_app/blob/master/app/assets/images/fron.png)
 
-In the project directory, you can run:
+### Dashboard
+ It displays all the portfolios especially the name and the description. You have to click on the name to be redirected to the portfolio.
 
-### `npm start`
+![img](/images/dash.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Portfolio Details
+![img](/images/port.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+It contains the name and the descriptions of a portfolio, it includes the investments of a portfolio with details such as the current price of the symbol in the market, some calculation of the gain and loss of the character based on the current price, and the initial price of share
 
 ### Deployment
+ [Video](https://www.loom.com/share/25504df4e78a44d8b1a2d5caa4b71c98?sid=89cf883f-b4f1-4a6b-aa26-17878595dd0c)
+## Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- React
 
-### `npm run build` fails to minify
+### Backend
+[Repo Link](https://github.com/vic778/stock_app)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![backend](https://github.com/vic778/stock_app/blob/master/app/assets/images/serv.png)
+
+
+## Getting Started
+
+Here are the steps to follow in order to get this project on your local computer.
+
+### Prerequisites
+
+`node v16.20 +`
+
+### Setup
+
+clone this repo by typing `git clone https://github.com/vic778/stock_app_front`
+
+### Install
+
+install the dependencies by typing `npm install`
+
+### Usage
+
+start the local server by running `npm start`
+
+
+### Documentation
+  User Registration and Login:
+
+Users can create an account by providing their details and registering.
+  - Once registered, users can log in to the application using their credentials.
+  - The login process generates a token that will be used for subsequent API calls.
+
+Portfolio Creation:
+
+ - After logging in, users can create a new portfolio.
+ - They can provide a name and an optional description for the portfolio.
+ - Upon creation, the portfolio is associated with the logged-in user.
+
+Investment Creation:
+
+ - Users can add investments to their portfolios.
+ - They need to provide details such as the security symbol or ticker, purchase price, number of shares, and purchase date.
+ - When creating an investment, the user selects the portfolio to which it belongs.
+
+Profit and Loss Calculation:
+
+ - The application provides services to calculate the profit and loss of investments.
+ - It takes into account the purchase price, current market data, and the number of shares.
+ - The calculated profit and loss are displayed to the user.
+
+Filtering and Historical Data:
+
+ - Users can filter their investments based on various criteria such as a specific year.
+ - The application fetches and displays the historical performance data for the selected investments.
+ - CSV File Download:
+
+
+## Author
+
+👤 **Victor Barh**
+
+- GitHub: [@Vvic778](https://github.com/vic778)
+- Twitter: [@victoirBarh](https://twitter.com/)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/victoir-barh)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+ N/A
+
+## 📝 License
+
+This project is [MIT](lic.url) licensed.

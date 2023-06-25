@@ -22,7 +22,8 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Welcome from Dashboard</h1>
+        <Link to="/">Home</Link>
+      <h1>Welcome To your Dashboard</h1>
       <Link to="/portfolio/create">Create a new Portfolio</Link>
 
       <h2>Portfolios:</h2>

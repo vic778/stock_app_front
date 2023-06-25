@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 
 const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -16,6 +17,7 @@ const Register = () => {
     try {
       const { data } = await axios.post("http://localhost:3000/api/users", {
         user: {
+          name,
           email,
           password,
           password_confirmation: passwordConfirmation,
@@ -24,12 +26,16 @@ const Register = () => {
       console.log(data);
 
       localStorage.setItem("token", data.token);
-      toast.success("Registration successful");
-      navigate('/login');
+      // toast.success("Registration successful");
+      navigate('/dashboard');
     } catch (err) {
       console.log(err);
-      toast.error(err.response.data.message);
+      toast.error(err.response.data.errors);
     }
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
 
   const handleEmailChange = (e) => {
@@ -54,6 +60,17 @@ const Register = () => {
           <div className="card-body">
             <form onSubmit={handleSubmit}>
               <div className="row">
+              <div className="col-lg-6">
+                  <div className="form-group">
+                    <label>Name <span className="errmsg">*</span></label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      value={name}
+                      onChange={handleNameChange}
+                    />
+                  </div>
+                </div>
                 <div className="col-lg-6">
                   <div className="form-group">
                     <label>Email <span className="errmsg">*</span></label>

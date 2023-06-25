@@ -6,14 +6,13 @@ const CreatePortfolio = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   }, []);
- 
+
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
@@ -31,19 +30,29 @@ const CreatePortfolio = () => {
         description,
       });
       console.log(data.message);
-      setMessage(data.message); 
-      navigate('/dashboard');
-
+      setMessage(data.message);
+      navigate("/dashboard");
     } catch (err) {
       console.log(err);
       setMessage(err.errors); // Set the error message
-
     }
   };
 
+  // Check if the user is logged in
+  const isLoggedIn = localStorage.getItem("token");
+
+  if (!isLoggedIn) {
+    return (
+      <div>
+        <p>You must be logged in to create a portfolio.</p>
+        <Link to="/login">Login</Link>
+      </div>
+    );
+  }
+
   return (
     <div>
-        {message && <p>{message}</p>} {/* Render the error message if it exists */}
+      {message && <p>{message}</p>} {/* Render the error message if it exists */}
       <h1>Welcome from CreatePortfolio</h1>
       <Link to="/portfolio">Portfolio</Link>
 
