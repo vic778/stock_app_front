@@ -32,7 +32,32 @@
   color: red;
 }
 
-app-check{
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightgray;
+  padding: 10px;
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  color: black;
+}
+
+.navLinks {
+  display: flex;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+app-check {
   height: 20px;
   width: 20px;
 }
