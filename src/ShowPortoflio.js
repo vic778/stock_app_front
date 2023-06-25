@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const ShowPortfolio = () => {
   const { id } = useParams();
@@ -28,23 +28,31 @@ const ShowPortfolio = () => {
 
   return (
     <div>
+      <Link to="/dashboard">Dashboard</Link>
       <h2>Portfolio Details</h2>
       <h3>Name: {portfolio.portfolio.name}</h3>
       <p>Description: {portfolio.portfolio.description}</p>
 
       <h2>Investment Data</h2>
-      {portfolio.historical_data[1].map((data, index) => (
-        <div key={index}>
-          <h3>Symbol: {data.symbol}</h3>
-          <p>Purchase Price: {data.purchase_price}</p>
-          <p>Number of Shares: {data.number_of_shares}</p>
-          <p>Total Investment: {data.total_investment}</p>
-          <p>Current Price: {data.current_price}</p>
-          <p>Current Total Price: {data.current_total_price}</p>
-          <p>Gain or Loss: {data.gain_or_loss}</p>
-          <p>Percentage: {data.percentage}</p>
+      {portfolio.historical_data[1].length > 0 ? (
+        portfolio.historical_data[1].map((data, index) => (
+          <div key={index}>
+            <h3>Symbol: {data.symbol}</h3>
+            <p>Purchase Price: {data.purchase_price}</p>
+            <p>Number of Shares: {data.number_of_shares}</p>
+            <p>Total Investment: {data.total_investement}</p>
+            <p>Current Price: {data.current_price}</p>
+            <p>Current Total Price: {data.current_total_price}</p>
+            <p>Gain or Loss: {data.gain_or_lost}</p>
+            <p>Percentage: {data.percentage}</p>
+          </div>
+        ))
+      ) : (
+        <div>
+          <p>No investment data available.</p>
+          <Link to={`/portfolio/${id}/investment/create`}>Create an investment</Link>
         </div>
-      ))}
+      )}
     </div>
   );
 };
