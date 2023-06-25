@@ -16,30 +16,25 @@ class Stock extends React.Component {
   }
 
   fetchStock() {
-    const { symbol } = this.state; 
-    const pointerToThis = this;
-    const API_key = 'PO87DAJBOBABOF2I';
-    const API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=compact&apikey=${API_key}`;
-    let stockChartXValuesFunction = [];
-    let stockChartYValuesFunction = [];
-
+    const { symbol } = this.state;
+    const defaultSymbol = "AAPL";
+    const API_Call = `http://localhost:3000/api/home?symbol=${symbol || defaultSymbol}`;
+  
     fetch(API_Call)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-
-        for (var key in data['Time Series (Daily)']) {
-          stockChartXValuesFunction.push(key);
-          stockChartYValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
-        }
-
-        pointerToThis.setState({
-          stockChartXValues: stockChartXValuesFunction,
-          stockChartYValues: stockChartYValuesFunction
+      .then(response => response.json())
+      .then(data => {
+        const stockChartXValues = Object.keys(data.data.stockChartXValues);
+        const stockChartYValues = Object.values(data.data.stockChartYValues);
+  
+        this.setState({
+          stockChartXValues,
+          stockChartYValues
         });
+      })
+      .catch(error => {
+        console.log('Error fetching stock data:', error);
       });
-  }
+  }  
 
   handleSymbolChange = (event) => {
     this.setState({ symbol: event.target.value });
