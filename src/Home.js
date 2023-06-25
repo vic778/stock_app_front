@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div>
-      <nav className="navbar"> {/* Apply the "navbar" CSS class */}
+      <nav className="navbar"> 
         <Link to="/" className="logo">
           Logo
         </Link>

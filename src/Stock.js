@@ -47,7 +47,7 @@ class Stock extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="stock-container">
         <h1>Stock Market</h1>
         <form onSubmit={this.handleSubmit}>
           <input
