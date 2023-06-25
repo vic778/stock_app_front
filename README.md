@@ -57,7 +57,7 @@ install the dependencies by typing `npm install`
 start the local server by running `npm start`
 
 
-### Documentation
+## Documentation
   User Registration and Login:
 
 Users can create an account by providing their details and registering.
