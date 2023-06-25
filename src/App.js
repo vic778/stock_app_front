@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import Dashboard from './Dashboard';
 import Portfolio from './Portfolio';
 import CreatePortfolio from './CreatePortfolio';
+import ShowPortfolio from './ShowPortoflio';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/portfolio/create" element={<CreatePortfolio />} />
+      <Route path="/portfolio/:id" element={<ShowPortfolio />} />
      </Routes>
     </BrowserRouter>
     </div>
